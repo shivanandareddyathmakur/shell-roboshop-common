@@ -7,7 +7,7 @@ Y="\e[33m"
 N="\e[0m"
 
 LOGS_FOLDER="/var/log/shell-roboshop-common"
-SCRIPT_NAME=$( echo $0 | -d "." -f1 )
+SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 START_TIME=$(date +%s)
 SCRIPT_DIR=$PWD
@@ -26,10 +26,10 @@ check_root(){
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$2 ... $R FAILURE $N" | tee -a $LOG_FILE
+        echo -e "$2... $R FAILURE $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$2 ... $G SUCCESS $N" | tee -a $LOG_FILE
+        echo -e "$2... $G SUCCESS $N" | tee -a $LOG_FILE
     fi
 }
 
