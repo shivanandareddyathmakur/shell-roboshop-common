@@ -78,7 +78,7 @@ app_setup(){
     cd /app
     VALIDATE $? "moving to app directory"
 
-    rm -rm /app/*
+    rm -rf /app/*
     VALIDATE $? "removing existing code"
 
     unzip /tmp/$app_name.zip &>>$LOG_FILE
