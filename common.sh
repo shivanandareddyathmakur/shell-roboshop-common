@@ -39,7 +39,7 @@ nodejs_setup(){
     VALIDATE $? "disabling nodejs"
     dnf module enable nodejs:20 -y   &>>$LOG_FILE
     VALIDATE $? "enabling nodejs 20"
-    dnf module install nodejs &>>$LOG_FILE
+    dnf module install nodejs -y &>>$LOG_FILE
     VALIDATE $? "installing nodejs 20"
     npm install   &>>$LOG_FILE
     VALIDATE $? "installing dependencies"
