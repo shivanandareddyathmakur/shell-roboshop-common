@@ -12,7 +12,7 @@ systemd_setup
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "copy mongo repo"
 
-dnf install mongodb-mongosh-y &>>$LOG_FILE
+dnf install mongodb-mongosh -y &>>$LOG_FILE
 VALIDATE $? "install mongodb client"
 
 INDEX=$(mongosh mongodb.reddy25.shop --quiet --eval "db.getMongo().getDBNames().indexof('catalogue')")
